@@ -11,6 +11,8 @@ namespace Notes
     {
         static void Main(string[] args)
         {
+            List<string[]> notes = new List<string[]>();
+
             bool menu = true;
 
             while (menu)
@@ -25,7 +27,33 @@ namespace Notes
 
                 if (Int32.TryParse(Console.ReadLine(), out int selection))
                 {
-
+                    switch (selection)
+                    {
+                        case 1:
+                            {
+                                Console.Clear();
+                                Console.Write("Note: ");
+                                string[] note = new string[2];
+                                notes.Add(note);
+                                note[0] = Console.ReadLine();
+                                note[1] = DateTime.Now.ToString();
+                                Console.WriteLine("Note has been saved.");
+                                Console.ReadLine();
+                                break;
+                            }
+                        case 2:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Notes:");
+                                foreach (string[] item in notes)
+                                {
+                                    Console.WriteLine("\n" + item[0]);
+                                    Console.WriteLine(item[1]);
+                                }
+                                Console.ReadKey();
+                                break;
+                            }
+                    }
                 }
                 else
                 {
