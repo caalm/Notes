@@ -9,7 +9,20 @@ namespace Notes
 {
     internal class Program
     {
-
+        static void Remove(List<string[]>notes)
+        {
+            Console.Write("\nType note to remove: ");
+            string remove = Console.ReadLine();
+            for (int i = 0; i < notes.Count; i++)
+            {
+                if (remove == notes[i][0])
+                {
+                    notes.RemoveAt(i);
+                    Console.WriteLine("Note has been removed.");
+                    Console.ReadLine();
+                }
+            }
+        }
 
         static void Main(string[] args)
         {
@@ -75,13 +88,12 @@ namespace Notes
                         case 4:
                             {
                                 Console.Clear();
-                                Console.WriteLine("Remove:");
+                                Console.WriteLine("Notes:");
                                 foreach (string[] item in notes)
                                 {
-                                    Console.WriteLine("\n" + item[0]);
-                                    Console.WriteLine(item[1]);
+                                    Console.WriteLine(item[0]);
                                 }
-                                Console.ReadKey();
+                                Remove(notes);
                                 break;
                             }
                         case 5:
@@ -89,7 +101,7 @@ namespace Notes
                                 Console.Clear();
                                 Console.WriteLine("Closing notes.");
                                 menu = false;
-                                Console.ReadLine();
+                                System.Threading.Thread.Sleep(1000);
                                 break;
                             }
                         default:
