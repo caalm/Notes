@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    internal class User
+    public class User
     {
-        private string name;
+        public string name;
         public string Name
         {
             get { return name; }

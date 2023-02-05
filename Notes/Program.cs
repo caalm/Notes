@@ -54,6 +54,7 @@ namespace Notes
             User user1 = new User();
             user1.Name = Console.ReadLine();
             Console.Write("Age: ");
+            // Om användaren skriver något annat än siffror blir det error och programmet stängs av.
             try
             {
                 int age = Int32.Parse(Console.ReadLine());
