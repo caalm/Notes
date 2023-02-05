@@ -53,6 +53,19 @@ namespace Notes
             Console.Write("Name: ");
             User user1 = new User();
             user1.Name = Console.ReadLine();
+            Console.Write("Age: ");
+            try
+            {
+                int age = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+                Console.WriteLine("Error.");
+                System.Threading.Thread.Sleep(1000);
+                Environment.Exit(0);
+            }
+
 
             // En while loop som loopas boolen menu blir falsk då användaren väljer att stänga av programmet.
             while (menu)
