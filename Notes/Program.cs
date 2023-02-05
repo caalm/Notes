@@ -9,6 +9,8 @@ namespace Notes
 {
     internal class Program
     {
+
+
         static void Main(string[] args)
         {
             List<string[]> notes = new List<string[]>();
@@ -36,7 +38,8 @@ namespace Notes
                                 string[] note = new string[2];
                                 notes.Add(note);
                                 note[0] = Console.ReadLine();
-                                note[1] = DateTime.Now.ToString();
+                                string dateTime = DateTime.Now.ToString();
+                                note[1] = dateTime;
                                 Console.WriteLine("Note has been saved.");
                                 Console.ReadLine();
                                 break;
@@ -53,12 +56,55 @@ namespace Notes
                                 Console.ReadKey();
                                 break;
                             }
+                        case 3:
+                            {
+                                Console.Clear();
+                                Console.Write("Search: ");
+                                string search = Console.ReadLine();
+                                for (int i = 0; i < notes.Count; i++)
+                                {
+                                    if (notes[i][0] == search)
+                                    {
+                                        Console.WriteLine("\n" + notes[i][0]);
+                                        Console.WriteLine(notes[i][1]);
+                                        Console.ReadLine();
+                                    }
+                                }
+                                break;
+                            }
+                        case 4:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Remove:");
+                                foreach (string[] item in notes)
+                                {
+                                    Console.WriteLine("\n" + item[0]);
+                                    Console.WriteLine(item[1]);
+                                }
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 5:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Closing notes.");
+                                menu = false;
+                                Console.ReadLine();
+                                break;
+                            }
+                        default:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Choose 1-5 in the menu.");
+                                Console.ReadLine();
+                                break;
+                            }
                     }
                 }
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Choose 1-5");
+                    Console.WriteLine("Choose 1-5 in the menu.");
                     Console.ReadLine();
                 }
             }
